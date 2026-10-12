@@ -857,14 +857,23 @@ table {
 }
 
 .experience-image img {
-    aspect-ratio: 16 / 11;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.experience-media .main-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
 }
 
 .small-image {
-    width: min(240px, 72%);
-    justify-self: end;
-
-    border: 6px solid #ffffff;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 20px;
+    border: 4px solid #ffffff;
+    box-shadow: 0 10px 30px rgba(44, 67, 109, .12);
 }
 
 .experience-bubble {
@@ -954,7 +963,10 @@ table {
 }
 
 .package-image img {
+    display: block;
+    width: 100%;
     aspect-ratio: 16 / 10;
+    object-fit: cover;
 }
 
 .package-body {
@@ -1304,7 +1316,7 @@ table {
 
     grid-template-columns: 1fr;
 
-    gap: 18px;
+    gap: 32px;
 
     margin-top: 30px;
 }
@@ -1312,18 +1324,19 @@ table {
 .circular-metrics article {
     display: grid;
 
-    grid-template-columns: 72px minmax(0, 1fr);
-
-    gap: 16px;
-
-    align-items: center;
+    grid-template-columns: 56px minmax(0, 1fr);
+    column-gap: 16px;
+    row-gap: 6px;
+    align-items: start;
 }
 
-.circle {
+.circular-metrics .circle {
+    grid-column: 1;
+    grid-row: 1 / span 2;
     display: grid;
 
-    width: 72px;
-    height: 72px;
+    width: 56px;
+    height: 56px;
 
     place-items: center;
 
@@ -1338,15 +1351,23 @@ table {
 }
 
 .circular-metrics h3 {
+    grid-column: 2;
+    grid-row: 1;
     color: #ffffff;
-
     font-size: 20px;
+    line-height: 1.4;
+    word-break: normal;
+    overflow-wrap: normal;
 }
 
 .circular-metrics p {
-    margin-top: 4px;
-
+    grid-column: 2;
+    grid-row: 2;
+    max-width: 280px;
+    margin: 0;
     font-size: 14px;
+    word-break: normal;
+    overflow-wrap: normal;
 }
 
 .appointment-form-card {
@@ -1822,26 +1843,6 @@ table {
         grid-column: span 1;
     }
 
-    .main-image {
-        width: 86%;
-    }
-
-    .small-image {
-        position: absolute;
-        right: 0;
-        bottom: 88px;
-
-        width: 42%;
-    }
-
-    .experience-bubble {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-
-        max-width: 280px;
-    }
-
     .package-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
@@ -1903,3 +1904,65 @@ select:focus-visible {
 }
 
 /* ---------- Accessibility END ---------- */
+
+/* Experience media: contained main/detail composition, mobile stacks naturally. */
+@media (min-width: 768px) {
+    .experience-media {
+        display: block;
+        width: 100%;
+        align-self: start;
+        aspect-ratio: 4 / 5;
+        min-height: 560px;
+    }
+    .experience-media .main-image {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: auto;
+    }
+    .experience-media .small-image {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        width: 38%;
+        z-index: 2;
+    }
+    .experience-media .experience-bubble {
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
+        width: calc(62% - 60px);
+        max-width: none;
+        z-index: 2;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .experience-media .experience-bubble { padding: 14px; }
+}
+
+/* Treatment selection keeps every existing card available for comparison. */
+.package-card[data-treatment] {
+    transition: border-color 240ms ease, box-shadow 240ms ease;
+    scroll-margin-block: 24px;
+}
+.package-card.selected-treatment {
+    border-color: var(--color-accent-dark);
+    box-shadow: 0 0 0 2px var(--color-accent), var(--shadow-soft);
+}
+.package-tabs .tab-chip:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+}
+@media (max-width: 1023px) {
+    .package-tabs {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-block: 4px;
+    }
+    .package-tabs .tab-chip { flex: 0 0 auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .package-card[data-treatment] { transition: none; }
+}

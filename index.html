@@ -172,7 +172,7 @@
                 <div class="hero-media">
                     <div class="hero-image-card">
                         <img
-                            src="https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?auto=format&fit=crop&w=1200&q=80"
+                            src="assets/images/hero-dental-care.jpg"
                             alt="Dental professional in a modern clinical setting"
                             loading="eager"
                         >
@@ -391,7 +391,7 @@
 
                     <div class="experience-image main-image">
                         <img
-                            src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80"
+                            src="assets/images/why-anna-treatment-room.jpg"
                             alt="Dental team standing together in a modern clinic"
                             loading="lazy"
                         >
@@ -399,8 +399,8 @@
 
                     <div class="experience-image small-image">
                         <img
-                            src="https://images.unsplash.com/photo-1588776814546-ec7e0d1c7dd1?auto=format&fit=crop&w=900&q=80"
-                            alt="Modern dental equipment inside a treatment room"
+                            src="assets/images/why-anna-treatment-detail.jpg"
+                            alt="Dental treatment detail inside a modern clinic"
                             loading="lazy"
                         >
                     </div>
@@ -440,21 +440,21 @@
                 </div>
 
 
-                <div class="package-tabs">
-                    <button class="tab-chip active" type="button">Braces</button>
-                    <button class="tab-chip" type="button">Clear Aligners</button>
-                    <button class="tab-chip" type="button">Implants & Crowns</button>
-                    <button class="tab-chip" type="button">General Dentistry</button>
-                    <button class="tab-chip" type="button">Family Care</button>
+                <div class="package-tabs" role="tablist" aria-label="Treatment pathways">
+                    <button class="tab-chip active" type="button" id="treatment-tab-braces" data-treatment-target="braces" role="tab" aria-selected="true" aria-controls="treatment-braces" tabindex="0">Braces</button>
+                    <button class="tab-chip" type="button" id="treatment-tab-aligners" data-treatment-target="aligners" role="tab" aria-selected="false" aria-controls="treatment-aligners" tabindex="-1">Clear Aligners</button>
+                    <button class="tab-chip" type="button" id="treatment-tab-implants" data-treatment-target="implants" role="tab" aria-selected="false" aria-controls="treatment-implants" tabindex="-1">Implants & Crowns</button>
+                    <button class="tab-chip" type="button" id="treatment-tab-general" data-treatment-target="general" role="tab" aria-selected="false" aria-controls="treatment-general treatment-general-restorative" tabindex="-1">General Dentistry</button>
+                    <button class="tab-chip" type="button" id="treatment-tab-family" data-treatment-target="family" role="tab" aria-selected="false" aria-controls="treatment-family" tabindex="-1">Family Care</button>
                 </div>
 
 
                 <div class="package-grid">
 
-                    <article class="package-card">
+                    <article class="package-card" data-treatment="braces" id="treatment-braces" role="tabpanel" aria-labelledby="treatment-tab-braces" tabindex="-1">
                         <div class="package-image">
                             <img
-                                src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1000&q=80"
+                                src="assets/images/treatments-braces.jpg"
                                 alt="Close-up of dental treatment in progress"
                                 loading="lazy"
                             >
@@ -483,11 +483,11 @@
                     </article>
 
 
-                    <article class="package-card featured-package">
+                    <article class="package-card featured-package" data-treatment="aligners" id="treatment-aligners" role="tabpanel" aria-labelledby="treatment-tab-aligners" tabindex="-1">
                         <div class="package-image">
                             <img
-                                src="https://images.unsplash.com/photo-1606265752439-1f18756aa376?auto=format&fit=crop&w=1000&q=80"
-                                alt="Dental professional discussing treatment with a patient"
+                                src="assets/images/treatments-clear-aligners.jpg"
+                                alt="Dental professional providing treatment to a patient"
                                 loading="lazy"
                             >
                         </div>
@@ -519,10 +519,10 @@
                     </article>
 
 
-                    <article class="package-card">
+                    <article class="package-card" data-treatment="implants" id="treatment-implants" role="tabpanel" aria-labelledby="treatment-tab-implants" tabindex="-1">
                         <div class="package-image">
                             <img
-                                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1000&q=80"
+                                src="assets/images/treatments-implants-crowns.jpg"
                                 alt="Dentist examining a patient during consultation"
                                 loading="lazy"
                             >
@@ -551,7 +551,7 @@
                     </article>
 
 
-                    <article class="package-card compact-card">
+                    <article class="package-card compact-card" data-treatment="general" id="treatment-general" role="tabpanel" aria-labelledby="treatment-tab-general" tabindex="-1">
                         <div class="package-body">
                             <h3>
                                 Scaling & Cleaning
@@ -568,7 +568,7 @@
                     </article>
 
 
-                    <article class="package-card compact-card">
+                    <article class="package-card compact-card" data-treatment="general" id="treatment-general-restorative" role="tabpanel" aria-labelledby="treatment-tab-general" tabindex="-1">
                         <div class="package-body">
                             <h3>
                                 Fillings & Root Canal
@@ -585,7 +585,7 @@
                     </article>
 
 
-                    <article class="package-card compact-card">
+                    <article class="package-card compact-card" data-treatment="family" id="treatment-family" role="tabpanel" aria-labelledby="treatment-tab-family" tabindex="-1">
                         <div class="package-body">
                             <h3>
                                 Family Check-Ups
@@ -750,7 +750,7 @@
                 <div class="cases-grid">
                     <article class="case-card">
                         <img
-                            src="https://images.unsplash.com/photo-1588776814546-daab30f310ce?auto=format&fit=crop&w=900&q=80"
+                            src="assets/images/patient-comfortable-consultation.jpg"
                             alt="Patient consultation in a dental clinic"
                             loading="lazy"
                         >
@@ -769,7 +769,7 @@
 
                     <article class="case-card">
                         <img
-                            src="https://images.unsplash.com/photo-1588776814234-95ab98f84f09?auto=format&fit=crop&w=900&q=80"
+                            src="assets/images/patient-careful-clinical-work.jpg"
                             alt="Close-up of dental care in a clean clinical setting"
                             loading="lazy"
                         >
@@ -788,7 +788,7 @@
 
                     <article class="case-card">
                         <img
-                            src="https://images.unsplash.com/photo-1629909615184-f437a6f66fd1?auto=format&fit=crop&w=900&q=80"
+                            src="assets/images/patient-professional-standards.jpg"
                             alt="Dental professional in protective gear"
                             loading="lazy"
                         >
@@ -807,7 +807,7 @@
 
                     <article class="case-card">
                         <img
-                            src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=900&q=80"
+                            src="assets/images/patient-modern-clinic.jpg"
                             alt="Modern dental clinic room with equipment"
                             loading="lazy"
                         >
@@ -1039,8 +1039,8 @@
                 <div class="article-grid">
                     <article class="article-card">
                         <img
-                            src="https://images.unsplash.com/photo-1588776814627-55b3fa0c7d2c?auto=format&fit=crop&w=900&q=80"
-                            alt="Dentist explaining treatment to a patient"
+                            src="assets/images/topics-braces-vs-aligners.png"
+                            alt="Patient demonstrating a clear aligner for orthodontic treatment"
                             loading="lazy"
                         >
 
@@ -1058,7 +1058,7 @@
 
                     <article class="article-card">
                         <img
-                            src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=900&q=80"
+                            src="assets/images/topics-crown-treatment.jpg"
                             alt="Dental professional consulting a patient"
                             loading="lazy"
                         >
@@ -1077,7 +1077,7 @@
 
                     <article class="article-card">
                         <img
-                            src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80"
+                            src="assets/images/topics-family-clinic.jpg"
                             alt="Dental clinic team in a healthcare environment"
                             loading="lazy"
                         >
@@ -1096,7 +1096,7 @@
 
                     <article class="article-card">
                         <img
-                            src="https://images.unsplash.com/photo-1512678080530-7760d81faba6?auto=format&fit=crop&w=900&q=80"
+                            src="assets/images/topics-consultation.jpg"
                             alt="Dentist using digital tools during patient care"
                             loading="lazy"
                         >
